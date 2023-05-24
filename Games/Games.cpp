@@ -1,7 +1,6 @@
 ﻿#include <iostream>
 #include "Snake.h"
 #include "TicTacToe.h"
-#include <conio.h>
 #include <windows.h>
 
 using namespace std;
@@ -24,45 +23,17 @@ int main()
 
 		if (game == 1)
 		{
-			SnakeSetup();
-			while (!gameOver)
-			{
-				SnakeDraw();
-				SnakeInput();
-				SnakeLogic();
-				Sleep(40);
-			}
+			SnakeGame snakeGame;
+			snakeGame.Run();
 
 			system("pause");
 			return main();
 		}
 		else if (game == 2)
 		{
-			n = 0;
+			TicTacToeGame game;
+			game.Run();
 
-			TTTDraw();
-			while (1)
-			{
-				n++;
-				TTTInput();
-				TTTDraw();
-				if (TTTWin() == 'X')
-				{
-					cout << "X wins!" << endl;
-					break;
-				}
-				else if (TTTWin() == 'O')
-				{
-					cout << "O wins!" << endl;;
-					break;
-				}
-				else if (TTTWin() == '/' && n == 9)
-				{
-					cout << "It's a draw!" << endl;
-					break;
-				}
-				TTTTogglePlayer();
-			}
 			system("pause");
 			return main();
 		}
